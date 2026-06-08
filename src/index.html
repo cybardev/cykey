@@ -54,7 +54,7 @@
           <button
             type="button"
             class="note"
-            @click="playNote($el.innerText)"
+            @click="playNote($el.innerText); $el.blur()"
             x-text="note"
             x-cloak
           ></button>
