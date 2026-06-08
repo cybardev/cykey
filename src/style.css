@@ -37,7 +37,7 @@ section#keypad {
   color: ivory;
   background-color: black;
 
-  &:active,
+  &.active,
   &:focus {
     background-color: darkslategrey;
   }

@@ -33,6 +33,7 @@
           <button
             type="button"
             class="note"
+            :class="{ active: pressed.includes(note) }"
             @mousedown="playNote"
             @mouseup="stopNote"
             @touchstart.prevent="playNote"
