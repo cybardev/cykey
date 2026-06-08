@@ -1,0 +1,36 @@
+:root {
+  font-family: sans-serif;
+}
+
+[x-cloak] {
+  display: none !important;
+}
+
+body {
+  text-align: center;
+  margin-top: 32vh;
+}
+
+header {
+  margin-block: 5vh;
+  font-size: 2rem;
+}
+
+section {
+  margin-block: 2rem;
+}
+
+.note {
+  border: none;
+  border-radius: 5px;
+  width: 5rem;
+  height: 4rem;
+  font-size: x-large;
+  margin-inline: 0.25rem;
+  color: ivory;
+  background-color: black;
+
+  &:hover {
+    background-color: darkslategrey;
+  }
+}

@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Cy | key</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="https://unpkg.com/tone"></script>
+    <script defer src="script.js"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <h1>Cy | key</h1>
+    </header>
+    <main x-data="STATE">
+      <section id="octave-selection">
+        <label for="octave">Octave:</label>
+        <input
+          type="number"
+          id="octave"
+          name="octave"
+          min="2"
+          max="6"
+          x-model="baseOctave"
+        />
+      </section>
+      <section id="keypad">
+        <template x-for="(note, index) in notes" :key="index">
+          <button
+            type="button"
+            class="note"
+            @click="playNote($el.innerText)"
+            x-text="note"
+            x-cloak
+          ></button>
+        </template>
+      </section>
+    </main>
+  </body>
+</html>
