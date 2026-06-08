@@ -20,6 +20,10 @@ section {
   margin-block: 2rem;
 }
 
+.crimson {
+  color: crimson;
+}
+
 .note {
   border: none;
   border-radius: 5px;
