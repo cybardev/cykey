@@ -16,13 +16,7 @@ header {
   font-size: 2rem;
 }
 
-section#selections {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-}
-
+section#selections,
 section#keypad {
   margin-block: 2rem;
 }

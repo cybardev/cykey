@@ -18,43 +18,25 @@
     </header>
     <main x-data="STATE">
       <section id="selections">
-        <div>
-          <label for="octave">Octave:</label>&nbsp;
-          <select
-            name="octave"
-            @change="baseOctave = parseInt($event.target.value)"
-          >
-            <template x-for="o in octaveRange" :key="o">
-              <option
-                :value="o"
-                x-text="o"
-                :selected="o === baseOctave"
-              ></option>
-            </template>
-          </select>
-        </div>
-        <div>
-          <label for="duration">Note Duration:</label>&nbsp;
-          <select
-            name="duration"
-            @change="noteDuration = parseInt($event.target.value)"
-          >
-            <template x-for="d in durationRange" :key="d">
-              <option
-                :value="d"
-                x-text="durationLabel(d)"
-                :selected="d === noteDuration"
-              ></option>
-            </template>
-          </select>
-        </div>
+        <label for="octave">Octave:</label>&nbsp;
+        <select
+          name="octave"
+          @change="baseOctave = parseInt($event.target.value)"
+        >
+          <template x-for="o in octaveRange" :key="o">
+            <option :value="o" x-text="o" :selected="o === baseOctave"></option>
+          </template>
+        </select>
       </section>
       <section id="keypad">
         <template x-for="(note, index) in notes" :key="index">
           <button
             type="button"
             class="note"
-            @click="playNote($el.innerText); $el.blur()"
+            @mousedown="playNote"
+            @mouseup="stopNote"
+            @touchstart.prevent="playNote"
+            @touchend.prevent="stopNote"
             x-text="note"
             x-cloak
           ></button>

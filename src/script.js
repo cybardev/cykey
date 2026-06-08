@@ -3,21 +3,21 @@ function STATE() {
 
   return {
     baseOctave: 3,
-    noteDuration: 8,
-    durationRange: [1, 2, 4, 8, 16, 32],
     octaveRange: [2, 3, 4, 5, 6],
     notes: ["D#", "F#", "G#", "A#", "C#"],
-    durationLabel(d) {
-      return `1/${parseInt(d)}`;
-    },
-    async playNote(note) {
+    async playNote(event) {
       await Tone.start();
       if (!synth) synth = new Tone.Synth().toDestination();
+      const note = event.target.innerText;
       let toPlay =
         note === "C#"
           ? `${note}${this.baseOctave + 1}`
           : `${note}${this.baseOctave}`;
-      synth.triggerAttackRelease(toPlay, `${this.noteDuration}n`);
+      synth.triggerAttack(toPlay);
+    },
+    stopNote(event) {
+      event.target.blur();
+      if (synth) synth.triggerRelease();
     },
   };
 }
