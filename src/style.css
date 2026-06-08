@@ -35,7 +35,9 @@ fieldset#octave-selection {
   gap: 0.5rem;
   justify-content: center;
   align-items: center;
-  padding: 0.5rem 1rem;
+  padding-top: 0.5rem;
+  padding-inline: calc(0.5rem + 0.5em);
+  padding-bottom: calc(0.5rem + 0.5em); /* 0.5rem base + half legend height */
   border-radius: 8px;
   border: 1px solid #ccc;
   margin-inline: auto;
