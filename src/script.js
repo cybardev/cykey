@@ -2,6 +2,7 @@ function STATE() {
   let synth = null;
 
   return {
+    pillShape: false,
     baseOctave: 3,
     octaveRange: [2, 3, 4, 5, 6],
     notes: ["D#", "F#", "G#", "A#", "C#"],

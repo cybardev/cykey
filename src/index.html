@@ -36,8 +36,8 @@
       </section>
     </main>
     <footer id="selections">
-      <fieldset id="octave-selection">
-        <legend>Octave</legend>
+      <fieldset id="octave-selection" :class="pillShape && 'pill'">
+        <legend @click="pillShape = !pillShape">Octave</legend>
         <template x-for="o in octaveRange" :key="o">
           <label>
             <input
