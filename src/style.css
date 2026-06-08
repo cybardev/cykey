@@ -6,10 +6,6 @@
   display: none !important;
 }
 
-br {
-  line-height: 5rem;
-}
-
 body {
   text-align: center;
   margin-top: 32vh;
@@ -18,6 +14,13 @@ body {
 header {
   margin-block: 2rem;
   font-size: 2rem;
+}
+
+section#selections {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 section#keypad {
@@ -38,7 +41,19 @@ section#keypad {
   color: ivory;
   background-color: black;
 
-  &:hover {
+  &:active,
+  &:focus {
+    background-color: darkslategrey;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+}
+
+/* avoid being trapped in hover state on touchscreens */
+@media (hover: hover) {
+  .note:hover {
     background-color: darkslategrey;
   }
 }
