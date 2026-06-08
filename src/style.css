@@ -7,18 +7,43 @@
 }
 
 body {
+  margin: 0;
   text-align: center;
-  margin-top: 32vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
 }
 
 header {
-  margin-block: 2rem;
   font-size: 2rem;
+
+  h1 {
+    margin: 0;
+  }
 }
 
-section#selections,
-section#keypad {
+main {
   margin-block: 2rem;
+}
+
+fieldset#octave-selection {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-inline: auto;
+  width: fit-content;
+
+  legend {
+    padding-inline: 0.25rem;
+    margin-inline: auto;
+    text-align: center;
+  }
 }
 
 .crimson {

@@ -12,22 +12,11 @@
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
   </head>
-  <body>
+  <body x-data="STATE">
     <header>
       <h1>Cy&nbsp;<span class="crimson">|</span>&nbsp;key</h1>
     </header>
-    <main x-data="STATE">
-      <section id="selections">
-        <label for="octave">Octave:</label>&nbsp;
-        <select
-          name="octave"
-          @change="baseOctave = parseInt($event.target.value)"
-        >
-          <template x-for="o in octaveRange" :key="o">
-            <option :value="o" x-text="o" :selected="o === baseOctave"></option>
-          </template>
-        </select>
-      </section>
+    <main>
       <section id="keypad">
         <template x-for="(note, index) in notes" :key="index">
           <button
@@ -46,5 +35,22 @@
         </template>
       </section>
     </main>
+    <footer id="selections">
+      <fieldset id="octave-selection">
+        <legend>Octave</legend>
+        <template x-for="o in octaveRange" :key="o">
+          <label>
+            <input
+              type="radio"
+              name="octave"
+              :value="o"
+              :checked="o === baseOctave"
+              @change="baseOctave = parseInt($event.target.value)"
+            />
+            <span x-text="o"></span>
+          </label>
+        </template>
+      </fieldset>
+    </footer>
   </body>
 </html>
