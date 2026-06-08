@@ -36,8 +36,10 @@
             :class="{ active: pressed.includes(note) }"
             @mousedown="playNote"
             @mouseup="stopNote"
+            @mouseleave="stopNote"
             @touchstart.prevent="playNote"
             @touchend.prevent="stopNote"
+            @touchcancel.prevent="stopNote"
             x-text="note"
             x-cloak
           ></button>
