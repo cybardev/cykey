@@ -11,19 +11,21 @@ function STATE() {
         ? `${note}${this.baseOctave + 1}`
         : `${note}${this.baseOctave}`;
     },
+    releaseNote(note) {
+      this.pressed = this.pressed.filter((n) => n !== note);
+      if (synth) synth.triggerRelease(this.playableNote(note));
+    },
     async playNote(event) {
       await Tone.start();
       if (!synth) synth = new Tone.PolySynth(Tone.Synth).toDestination();
       const note = event.target.innerText;
-      if (!this.pressed.includes(note)) this.pressed.push(note);
+      this.releaseNote(note);
+      this.pressed.push(note);
       synth.triggerAttack(this.playableNote(note));
     },
     stopNote(event) {
       event.target.blur();
-      const note = event.target.innerText;
-      this.pressed = this.pressed.filter((n) => n !== note);
-      if (synth)
-        synth.triggerRelease(this.playableNote(event.target.innerText));
+      this.releaseNote(event.target.innerText);
     },
   };
 }
