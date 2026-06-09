@@ -11,7 +11,7 @@ document.addEventListener("alpine:init", () => {
       pressed: [],
 
       playableNote(note) {
-        return note === "C#"
+        return note === this.notes[this.notes.length - 1]
           ? `${note}${this.baseOctave + 1}`
           : `${note}${this.baseOctave}`;
       },
@@ -30,12 +30,12 @@ document.addEventListener("alpine:init", () => {
       },
 
       async playNote(event) {
-        await this.startNote(event.target.innerText);
+        await this.startNote(event.currentTarget.innerText);
       },
 
       stopNote(event) {
-        event.target.blur();
-        this.releaseNote(event.target.innerText);
+        event.currentTarget.blur();
+        this.releaseNote(event.currentTarget.innerText);
       },
 
       async keyPress(event) {

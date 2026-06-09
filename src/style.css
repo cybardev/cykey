@@ -81,10 +81,6 @@ fieldset#octave-selection {
       color: green;
       font-weight: bold;
     }
-
-    &:hover span {
-      border-color: #aaa;
-    }
   }
 }
 

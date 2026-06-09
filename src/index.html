@@ -12,7 +12,12 @@
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
   </head>
-  <body x-data="STATE" @keydown.window="keyPress" @keyup.window="keyRelease">
+  <body
+    x-cloak
+    x-data="STATE"
+    @keydown.window="keyPress"
+    @keyup.window="keyRelease"
+  >
     <header>
       <h1>Cy&nbsp;<span class="crimson">|</span>&nbsp;key</h1>
     </header>
@@ -27,10 +32,9 @@
             @pointerup="stopNote"
             @pointerleave="stopNote"
             @pointercancel="stopNote"
-            @touchend.prevent="$el.blur"
-            @touchcancel.prevent="$el.blur"
+            @touchend.prevent="$el.blur()"
+            @touchcancel.prevent="$el.blur()"
             x-text="note"
-            x-cloak
           ></button>
         </template>
       </section>
