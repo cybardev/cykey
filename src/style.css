@@ -1,4 +1,6 @@
 :root {
+  -webkit-user-select: none; /* Safari */
+  user-select: none;
   font-family: sans-serif;
 }
 
@@ -48,8 +50,6 @@ fieldset#octave-selection {
   }
 
   legend {
-    -webkit-user-select: none; /* Safari */
-    user-select: none;
     padding-inline: 0.25rem;
     margin-inline: auto;
     text-align: center;
@@ -99,8 +99,7 @@ fieldset#octave-selection {
 }
 
 .note {
-  -webkit-user-select: none; /* Safari */
-  user-select: none;
+  touch-action: none;
   cursor: pointer;
   border: none;
   border-radius: 5px;
