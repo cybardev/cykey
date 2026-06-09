@@ -12,7 +12,13 @@
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
   </head>
-  <body x-data="STATE" @keydown.window="keyPress" @keyup.window="keyRelease">
+  <body
+    x-data="STATE"
+    @keydown.window="keyPress"
+    @keyup.window="keyRelease"
+    @touchend.prevent="stopReleasedNotes"
+    @touchcancel.prevent="stopReleasedNotes"
+  >
     <header>
       <h1>Cy&nbsp;<span class="crimson">|</span>&nbsp;key</h1>
     </header>
@@ -27,8 +33,6 @@
             @mouseup="stopNote"
             @mouseleave="stopNote"
             @touchstart.prevent="playNote"
-            @touchend.prevent="stopNote"
-            @touchcancel.prevent="stopNote"
             x-text="note"
             x-cloak
           ></button>

@@ -37,6 +37,15 @@ function STATE() {
       this.releaseNote(event.target.innerText);
     },
 
+    stopReleasedNotes(event) {
+      const activeTouches = new Set(
+        Array.from(event.touches).map((t) => t.target.innerText),
+      );
+      [...this.pressed].forEach((note) => {
+        if (!activeTouches.has(note)) this.releaseNote(note);
+      });
+    },
+
     async keyPress(event) {
       const num = parseInt(event.key);
       if (this.octaveRange.includes(num)) {
