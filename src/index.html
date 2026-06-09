@@ -16,8 +16,8 @@
     x-data="STATE"
     @keydown.window="keyPress"
     @keyup.window="keyRelease"
-    @touchend.prevent="stopReleasedNotes"
-    @touchcancel.prevent="stopReleasedNotes"
+    @touchend="stopReleasedNotes"
+    @touchcancel="stopReleasedNotes"
   >
     <header>
       <h1>Cy&nbsp;<span class="crimson">|</span>&nbsp;key</h1>
