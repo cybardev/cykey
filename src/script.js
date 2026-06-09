@@ -16,17 +16,17 @@ document.addEventListener("alpine:init", () => {
           : `${note}${this.baseOctave}`;
       },
 
+      releaseNote(note) {
+        this.pressed = this.pressed.filter((n) => n !== note);
+        if (synth) synth.triggerRelease(this.playableNote(note));
+      },
+
       async startNote(note) {
         await Tone.start();
         if (!synth) synth = new Tone.PolySynth(Tone.Synth).toDestination();
         this.releaseNote(note);
         this.pressed.push(note);
         synth.triggerAttack(this.playableNote(note));
-      },
-
-      releaseNote(note) {
-        this.pressed = this.pressed.filter((n) => n !== note);
-        if (synth) synth.triggerRelease(this.playableNote(note));
       },
 
       async playNote(event) {
